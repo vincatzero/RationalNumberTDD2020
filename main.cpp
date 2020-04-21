@@ -42,15 +42,24 @@ TEST_CASE("Rational Number Tests")
 	{
 		RationalNumber num1(1, 2);
 		REQUIRE(num1.toString() == "1/2");
+		REQUIRE(num1.toReducedString() == "1/2");
 
 		RationalNumber num2(-1, 2);
 		REQUIRE(num2.toString() == "-1/2");
+		REQUIRE(num2.toReducedString() == "-1/2");
 
 		RationalNumber num3(1, -2);
 		REQUIRE(num3.toString() == "-1/2");
+		REQUIRE(num3.toReducedString() == "-1/2");
 
 		RationalNumber num4(-1, -2);
 		REQUIRE(num4.toString() == "1/2");
+		REQUIRE(num4.toReducedString() == "1/2");
+
+		RationalNumber num5(4, 6);
+		REQUIRE(num5.toString() == "4/6");
+		REQUIRE(num5.toReducedString() == "2/3");
+
 	}
 
 	/*SECTION("Test Name 2")
