@@ -38,6 +38,21 @@ TEST_CASE("Rational Number Tests")
 		REQUIRE_THROWS(RationalNumber(1, -0));
 	}
 
+	SECTION("Test toString()")
+	{
+		RationalNumber num1(1, 2);
+		REQUIRE(num1.toString() == "1/2");
+
+		RationalNumber num2(-1, 2);
+		REQUIRE(num2.toString() == "-1/2");
+
+		RationalNumber num3(1, -2);
+		REQUIRE(num3.toString() == "-1/2");
+
+		RationalNumber num4(-1, -2);
+		REQUIRE(num4.toString() == "1/2");
+	}
+
 	/*SECTION("Test Name 2")
 	{
 		cout << "Running the second test" << endl;

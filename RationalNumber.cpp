@@ -2,8 +2,28 @@
 
 RationalNumber::RationalNumber(int n, int d)
 {
-	setNumerator(n);
-	setDenominator(d);
+	int numberOfNegative = 0;
+	if (n < 0)
+	{
+		numberOfNegative++;
+	}
+
+	if (d < 0)
+	{
+		numberOfNegative++;
+	}
+
+	if (numberOfNegative == 1)
+	{
+		isNegative = true;
+	} 
+	else
+	{
+		isNegative = false;
+	}
+
+	setNumerator(abs(n));
+	setDenominator(abs(d));
 }
 //--
 void RationalNumber::setNumerator(int n)
@@ -32,3 +52,21 @@ int RationalNumber::getDenominator()
 {
 	return denominator;
 }
+//--
+string RationalNumber::toString()
+{
+	string retVal;
+
+	if (isNegative)
+	{
+		retVal = "-";
+	}
+	retVal += to_string(getNumerator()) + "/" + to_string(getDenominator());
+
+	return retVal;
+}
+
+
+
+
+
