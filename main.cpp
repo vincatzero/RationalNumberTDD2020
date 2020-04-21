@@ -29,6 +29,15 @@ TEST_CASE("Rational Number Tests")
 		}
     }
 
+	SECTION("Test 0 in the denominator")
+	{
+		REQUIRE_THROWS(RationalNumber(1, 0));
+		REQUIRE_THROWS(RationalNumber(10, 0));
+		REQUIRE_THROWS(RationalNumber(0, 0));
+		REQUIRE_THROWS(RationalNumber(-1, 0));
+		REQUIRE_THROWS(RationalNumber(1, -0));
+	}
+
 	/*SECTION("Test Name 2")
 	{
 		cout << "Running the second test" << endl;
