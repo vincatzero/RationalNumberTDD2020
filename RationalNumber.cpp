@@ -128,15 +128,39 @@ string RationalNumber::toStringHelper(bool useReduced)
 		retVal = "-";
 	}
 
-	if (useReduced)
+	if (getNumerator() % getDenominator() == 0)
 	{
-		retVal += to_string(getReducedNumerator()) + "/" + to_string(getReducedDenominator());
+		retVal += to_string(getNumerator() / getDenominator());
+	}
+	else if (getNumerator() > getDenominator())
+	{
+		int characteristic;
+		int mixedNumerator;
+
+		if (useReduced)
+		{
+			characteristic = getReducedNumerator() / getReducedDenominator();
+			mixedNumerator = getReducedNumerator() % getReducedDenominator();
+			retVal += to_string(characteristic) + " " + to_string(mixedNumerator) + "/" + to_string(getReducedDenominator());
+		}
+		else
+		{
+			characteristic = getNumerator() / getDenominator();
+			mixedNumerator = getNumerator() % getDenominator();
+			retVal += to_string(characteristic) + " " + to_string(mixedNumerator) + "/" + to_string(getDenominator());
+		}
 	}
 	else
 	{
-		retVal += to_string(getNumerator()) + "/" + to_string(getDenominator());
+		if (useReduced)
+		{
+			retVal += to_string(getReducedNumerator()) + "/" + to_string(getReducedDenominator());
+		}
+		else
+		{
+			retVal += to_string(getNumerator()) + "/" + to_string(getDenominator());
+		}
 	}
-
 	return retVal;
 }
 

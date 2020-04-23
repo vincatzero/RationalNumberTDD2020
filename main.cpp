@@ -13,8 +13,8 @@ TEST_CASE("Rational Number Tests")
 	//setup code
 	cout << "Before the tests" << endl;
 
-    SECTION("Test Constructor")
-    {
+	SECTION("Test Constructor")
+	{
 		try
 		{
 			RationalNumber num1(1, 2);
@@ -27,7 +27,7 @@ TEST_CASE("Rational Number Tests")
 		{
 			FAIL();
 		}
-    }
+	}
 
 	SECTION("Test 0 in the denominator")
 	{
@@ -60,6 +60,37 @@ TEST_CASE("Rational Number Tests")
 		REQUIRE(num5.toString() == "4/6");
 		REQUIRE(num5.toReducedString() == "2/3");
 
+		RationalNumber num6(3, 2);
+		REQUIRE(num6.toString() == "1 1/2");
+		REQUIRE(num6.toReducedString() == "1 1/2");
+
+		RationalNumber num7(15, 10);
+		REQUIRE(num7.toString() == "1 5/10");
+		REQUIRE(num7.toReducedString() == "1 1/2");
+
+		RationalNumber num8(-3, 2);
+		REQUIRE(num8.toString() == "-1 1/2");
+		REQUIRE(num8.toReducedString() == "-1 1/2");
+
+		RationalNumber num9(3, -2);
+		REQUIRE(num9.toString() == "-1 1/2");
+		REQUIRE(num9.toReducedString() == "-1 1/2");
+
+		RationalNumber num10(-3, -2);
+		REQUIRE(num10.toString() == "1 1/2");
+		REQUIRE(num10.toReducedString() == "1 1/2");
+
+		RationalNumber num11(3, 1);
+		REQUIRE(num11.toString() == "3");
+		REQUIRE(num11.toReducedString() == "3");
+
+		RationalNumber num12(6, 2);
+		REQUIRE(num12.toString() == "3");
+		REQUIRE(num12.toReducedString() == "3");
+
+		RationalNumber num13(6, -2);
+		REQUIRE(num13.toString() == "-3");
+		REQUIRE(num13.toReducedString() == "-3");
 	}
 
 	/*SECTION("Test Name 2")
