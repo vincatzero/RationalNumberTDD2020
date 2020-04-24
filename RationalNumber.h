@@ -8,6 +8,8 @@ public:
 	RationalNumber(int n, int d);
 	string toString();
 	string toReducedString();
+	bool isEquals(RationalNumber rhs);
+
 private:
 	int numerator;
 	int denominator;
@@ -31,4 +33,5 @@ private:
 
 	void setReducedDenominator(int d);
 	int getReducedDenominator();
+
 };

@@ -93,10 +93,34 @@ TEST_CASE("Rational Number Tests")
 		REQUIRE(num13.toReducedString() == "-3");
 	}
 
-	/*SECTION("Test Name 2")
+	SECTION("Compare Tests")
 	{
-		cout << "Running the second test" << endl;
-	}*/
+		//cout << "Running the second test" << endl;
+		RationalNumber num1(1, 2);
+		RationalNumber num2(1, 2);
+		REQUIRE(num1.isEquals(num2) == true);
+
+		RationalNumber num3(2, 1);
+		REQUIRE(num1.isEquals(num3) == false);
+
+		RationalNumber num4(-1, 2);
+		REQUIRE(num1.isEquals(num4) == false);
+
+		RationalNumber num5(2, 4);
+		REQUIRE(num1.isEquals(num5) == true);
+
+		RationalNumber num6(-2, 4);
+		REQUIRE(num5.isEquals(num6) == false);
+		REQUIRE(num1.isEquals(num6) == false);
+		REQUIRE(num4.isEquals(num6) == true);
+
+		RationalNumber num7(3, 2);
+		RationalNumber num8(3, 4);
+		REQUIRE(num7.isEquals(num8) == false);
+
+		RationalNumber num9(9, 6);
+		REQUIRE(num7.isEquals(num9) == true);
+	}
 	
 	//tear down code
 	cout << "After the tests" << endl;

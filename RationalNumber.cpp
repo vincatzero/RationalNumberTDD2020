@@ -164,7 +164,11 @@ string RationalNumber::toStringHelper(bool useReduced)
 	return retVal;
 }
 
+bool RationalNumber::isEquals(RationalNumber rhs)
+{
+	return  this->toReducedString() == rhs.toReducedString();
 
+}
 
 
 
